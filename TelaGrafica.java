@@ -127,6 +127,12 @@ public class TelaGrafica extends JFrame {
 			centro.add(paux);
 			add(centro,BorderLayout.CENTER);
 			add(bOk,BorderLayout.SOUTH);
+			//restringir algum caractere
+			tNome.setDocument(new SoLetras());
+			tRendaBruta.setDocument(new SoNumeros());
+			tCpf.setDocument(new SoNumeros());
+			tGastoSaude.setDocument(new SoNumeros());
+			tGastoEducacao.setDocument(new SoNumeros());
 			
 			bOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evento) {
@@ -180,6 +186,12 @@ public class TelaGrafica extends JFrame {
 			centro.add(paux);
 			add(centro, BorderLayout.CENTER);
 			add(bOk, BorderLayout.SOUTH);
+			//restringir algum caractere
+			tNome.setDocument(new SoLetras());
+			tRendaBruta.setDocument(new SoNumeros());
+			tCgc.setDocument(new SoNumeros());
+			tGastoPessoal.setDocument(new SoNumeros());
+			tGastoEquipamento.setDocument(new SoNumeros());
 			
 			bOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evento) {
@@ -218,14 +230,18 @@ public class TelaGrafica extends JFrame {
 			tPlaca 		= new JTextField(10);
 			tMarca		= new JTextField(10);
 			tValorAnual	= new JTextField(10);
+			
 			paux.add(lPlaca);	paux.add(tPlaca);
 			paux.add(lMarca);	paux.add(tMarca);
 			paux.add(lValorAnual);	paux.add(tValorAnual);
-			centro.add(paux);
+			centro.add(paux); 
 			bOk = new JButton("Inserir IPVA");
+			
 			add(centro, BorderLayout.CENTER);
 			add(bOk, BorderLayout.SOUTH);
-			
+			//restringe alguns caracteres
+			tValorAnual.setDocument(new SoNumeros());
+			tMarca.setDocument(new SoLetras());
 			bOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evento) {
 					float valorAnual;
