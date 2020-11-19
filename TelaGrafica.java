@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -113,10 +112,15 @@ public class TelaGrafica extends JFrame {
 			lGastoSaude		=	new JLabel("Gasto Saude.......:",SwingConstants.RIGHT);
 			lGastoEducacao	=	new JLabel("Gasto Educacao....:",SwingConstants.RIGHT);
 			tNome		=		new JTextField(10);
+			tNome.setToolTipText("Somente letras");
 			tRendaBruta		=	new JTextField(10);
+			tRendaBruta.setToolTipText("Somente números");
 			tCpf			=	new JTextField(10);
+			tCpf.setToolTipText("Somente números");
 			tGastoSaude		=	new JTextField(10);
+			tGastoSaude.setToolTipText("Somente números");
 			tGastoEducacao	=	new JTextField(10);
+			tGastoEducacao.setToolTipText("Somente números");
 			bOk				=	new JButton("Insere Pessoa Fisica");
 			paux.add(lNome);			paux.add(tNome);
 			paux.add(lRendaBruta);		paux.add(tRendaBruta);
@@ -172,10 +176,15 @@ public class TelaGrafica extends JFrame {
 			lGastoPessoal	=	new JLabel("Gasto Pessoal.....:",SwingConstants.RIGHT);
 			lGastoEquipamento=	new JLabel("Gasto Equipamento.:",SwingConstants.RIGHT);
 			tNome			=	new JTextField(10);
-			tRendaBruta		=	new JTextField(10);	
+			tNome.setToolTipText("Somente letras");
+			tRendaBruta		=	new JTextField(10);
+			tRendaBruta.setToolTipText("Somente números");
 			tCgc			=	new JTextField(10);
+			tCgc.setToolTipText("Somente números");
 			tGastoPessoal	=	new JTextField(10);
+			tGastoPessoal.setToolTipText("Somente números");
 			tGastoEquipamento=	new JTextField(10);
+			tGastoEquipamento.setToolTipText("Somente números");
 			bOk				=	new JButton("Inserir Pessoa Juridica");
 			paux.add(lNome);			paux.add(tNome);
 			paux.add(lRendaBruta);		paux.add(tRendaBruta);
@@ -198,15 +207,15 @@ public class TelaGrafica extends JFrame {
 					float renda=0;
 					float gastoP=0;
 					float gastoE=0;
-					try {
+					//try {
 						renda=Float.parseFloat(tRendaBruta.getText());
 						gastoP=Float.parseFloat(tGastoPessoal.getText());
 						gastoE=Float.parseFloat(tGastoEquipamento.getText());
-					}catch(NumberFormatException erro){
-						renda=0;
-						gastoP=0;
-						gastoE=0;
-					}
+					//}catch(NumberFormatException erro){
+						//renda=0;
+						//gastoP=0;
+						//gastoE=0;
+					//}
 					PessoaJuridica juridica = new PessoaJuridica(tNome.getName(),renda,tCgc.getText(),gastoP, gastoE);
 					Lista.add(juridica);
 					JOptionPane.showMessageDialog(null,"Inseriu Pessoa Juridica com sucesso.");
@@ -229,7 +238,9 @@ public class TelaGrafica extends JFrame {
 			lValorAnual=new JLabel("Valor Anual:",SwingConstants.RIGHT);
 			tPlaca 		= new JTextField(10);
 			tMarca		= new JTextField(10);
+			tMarca.setToolTipText("W(Volks),G(Gm),F(Fiat) ou O(outros).");
 			tValorAnual	= new JTextField(10);
+			tValorAnual.setToolTipText("Somente números");
 			
 			paux.add(lPlaca);	paux.add(tPlaca);
 			paux.add(lMarca);	paux.add(tMarca);
@@ -248,16 +259,16 @@ public class TelaGrafica extends JFrame {
 					String TMarca;
 					TMarca=tMarca.getText().toUpperCase();
 					char marca;
-					try {
+					//try {
 						marca=TMarca.charAt(0);
-					}catch(NumberFormatException erro) {
-						marca=' ';
-					}
-					try {
+					//}catch(NumberFormatException erro) {
+						//marca=' ';
+					//}
+					//try {
 						valorAnual=Float.parseFloat(tValorAnual.getText());
-					}catch(NumberFormatException erro) {
-						valorAnual=0;
-					}
+					//}catch(NumberFormatException erro) {
+						//valorAnual=0;
+					//}
 					Ipva ipva = new Ipva(tPlaca.getText(), marca, valorAnual);
 					Lista.add(ipva);
 					JOptionPane.showMessageDialog(null,"Inseriu IPVA com sucesso.");
@@ -274,4 +285,3 @@ public class TelaGrafica extends JFrame {
 		x.setVisible(true);
 		}
 }
-
